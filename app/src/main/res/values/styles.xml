@@ -17,4 +17,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+
+    <!-- Home Tooltip Styles -->
+    <style name="ToolTipTheme" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/whiteText</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

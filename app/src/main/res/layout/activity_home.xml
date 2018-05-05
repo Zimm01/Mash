@@ -9,6 +9,7 @@
     android:fitsSystemWindows="true"
     tools:context=".HomeActivity">
 
+    <!-- Application Bar Placeholder -->
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
         android:layout_width="match_parent"
@@ -17,18 +18,22 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <!-- Screen Text Layout -->
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:weightSum="2">
 
+        <!-- Top Half Of Screen -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.25" />
 
+
+        <!-- Bottom Half Of Screen -->
         <LinearLayout
             android:id="@+id/container1"
             android:layout_width="match_parent"
@@ -39,28 +44,132 @@
             android:weightSum="3"
             android:orientation="vertical">
 
-            <TextView
+            <!-- INPUT LAYOUT SECTION -->
+            <LinearLayout
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2.2" />
+                android:layout_weight="2.2"
+                android:weightSum="3"
+                android:orientation="horizontal"
+                android:baselineAligned="false">
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/number_of_sets_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights"
+                    android:gravity="bottom"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="20dp"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:textColorHint="@color/whiteText"
+                    app:hintTextAppearance="@style/ToolTipTheme"
+                    >
+
+                    <EditText
+                        android:id="@+id/input_sets"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/homescreen_sets_title"
+                        android:text="@string/homescreen_sets_standard"
+                        android:inputType="time"
+                        android:gravity="center"
+                        tools:ignore="TextFields"
+                        android:selectAllOnFocus="false"
+                        android:background="@drawable/dark_input"
+                        android:textAppearance="@android:style/TextAppearance.Widget"
+                        android:textColor="@color/whiteText"
+                        style="@android:style/Widget.Material.AutoCompleteTextView"/>
 
 
-            <Button
-                android:id="@+id/button"
-                style="@android:style/Widget.Holo.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                android:text="Quick Mash" />
+                </android.support.design.widget.TextInputLayout>
 
-            <Button
-                android:id="@+id/button2"
-                style="@android:style/Widget.Holo.Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.4"
-                android:text="Custom Workout" />
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/timeon_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights"
+                    android:gravity="bottom"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="20dp"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:textColorHint="@color/whiteText"
+                    app:hintTextAppearance="@style/ToolTipTheme">
+
+                    <EditText
+                        android:id="@+id/input_timeon"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/homescreen_timeon_title"
+                        android:text="@string/homescreen_timeon_standard"
+                        android:inputType="time"
+                        android:gravity="center"
+                        tools:ignore="TextFields"
+                        android:selectAllOnFocus="false"
+                        android:background="@drawable/dark_input"
+                        android:textAppearance="@android:style/TextAppearance.Widget"
+                        android:textColor="@color/whiteText"
+                        style="@android:style/Widget.Material.AutoCompleteTextView"/>
+
+
+                </android.support.design.widget.TextInputLayout>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/timeoff_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    tools:ignore="NestedWeights"
+                    android:gravity="bottom"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="20dp"
+                    android:paddingEnd="5dp"
+                    android:paddingStart="5dp"
+                    android:textColorHint="@color/whiteText"
+                    app:hintTextAppearance="@style/ToolTipTheme">
+
+                    <EditText
+                        android:id="@+id/input_timeoff"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/homescreen_timeoff_title"
+                        android:text="@string/homescreen_timeoff_standard"
+                        android:inputType="time"
+                        android:gravity="center"
+                        tools:ignore="TextFields"
+                        android:selectAllOnFocus="false"
+                        android:background="@drawable/dark_input"
+                        android:textAppearance="@android:style/TextAppearance.Widget"
+                        android:textColor="@color/whiteText"
+                        style="@android:style/Widget.Material.AutoCompleteTextView" />
+
+
+                </android.support.design.widget.TextInputLayout>
+
+            <!-- BUTTON LAYOUT SECTIONt -->
+            </LinearLayout>
+                <Button
+                    android:id="@+id/button"
+                    style="@android:style/Widget.Holo.Button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:text="@string/workout_button_quick" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.4"
+                    android:paddingBottom="2dp"
+                    style="@android:style/Widget.Holo.Button"
+                    android:text="@string/workout_button_custom" />
         </LinearLayout>
 
 
