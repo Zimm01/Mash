@@ -5,6 +5,9 @@
     
     
     <!-- Home Screen -->
+    <string name="main_logo_desc">Application Main Logo</string>
+    <string name="main_logo_text">Mash Fitness</string>
+
     <string name="homescreen_sets_title">Sets</string>
     <string name="homescreen_sets_standard">5</string>
 
