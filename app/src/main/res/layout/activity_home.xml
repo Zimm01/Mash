@@ -42,7 +42,7 @@
                 android:paddingBottom="15dp"
                 android:paddingTop="45dp"
                 android:scaleType="fitCenter"
-                android:src="@drawable/AppLogo" />
+                android:src="@drawable/app_logo" />
 
             <ImageView
                 android:id="@+id/logoTextImageview"
@@ -52,7 +52,7 @@
                 android:paddingBottom="35dp"
                 app:layout_anchor="@+id/imageView5"
                 app:layout_anchorGravity="bottom|center"
-                app:srcCompat="@drawable/AppName" />
+                app:srcCompat="@drawable/app_name" />
 
 
         </LinearLayout>
