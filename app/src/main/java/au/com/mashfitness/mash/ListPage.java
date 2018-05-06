@@ -35,7 +35,6 @@ public class ListPage extends AppCompatActivity {
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background
     };
 
@@ -45,15 +44,15 @@ public class ListPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_setup);
-        backgroundView = (View) findViewById(R.id.view2);
-        backgroundView.setBackgroundColor(Color.parseColor("#ee6565"));
-        listView = (ListView) findViewById(R.id.listViewID);
-        listView.setBackgroundColor(Color.GRAY);
+
+
 
 
 
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(whatever);
+
+
     }
 }
