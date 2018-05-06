@@ -9,9 +9,7 @@ import android.widget.*;
 public class ListPage extends AppCompatActivity {
 
     String[] nameArray = {"Burpees","Butterfly situps","Lunge Walk","Plank Walk","Plyometric lunges","Pulse Squats",
-            "Pushup Jacks","Pushup Twist","Russain twist","10 Star Jumps/2 Burpees"};
-
-
+            "Pushup Jacks","Pushup Twist","Russain twist","Star Jumps"};
 
     String[] infoArray = {
             "Endurance",
@@ -23,7 +21,7 @@ public class ListPage extends AppCompatActivity {
             "Endurance",
             "Endurance",
             "Core",
-            "Cardio,Endurance"
+            "Endurance"
     };
 
     Integer[] imageArray = {R.drawable.ic_launcher_background,
@@ -38,14 +36,25 @@ public class ListPage extends AppCompatActivity {
             R.drawable.ic_launcher_background
     };
 
-    View backgroundView;
+    private boolean isReady = false;
     ListView listView;
+
+    Button beginButton = (Button) findViewById(R.id.begin_workout_button);
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_setup);
 
 
+        beginButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // Enter code to transition to workout page
+
+                
+            }
+        });
 
 
 

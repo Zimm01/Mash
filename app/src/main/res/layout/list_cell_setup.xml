@@ -23,6 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="47dp"
             android:text="TextView"
+            android:textColor="@android:color/background_light"
             android:textSize="25sp"
             android:textStyle="bold" />
 
@@ -30,6 +31,7 @@
             android:id="@+id/infoTextviewID"
             android:layout_width="match_parent"
             android:layout_height="52dp"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@android:color/holo_orange_dark" />
     </LinearLayout>
 </LinearLayout>
