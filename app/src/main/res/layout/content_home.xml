@@ -181,7 +181,7 @@
             <!-- BUTTON LAYOUT SECTIONt -->
             </LinearLayout>
                 <Button
-                    android:id="@+id/button"
+                    android:id="@+id/mash_button"
                     style="@android:style/Widget.Holo.Button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -189,7 +189,7 @@
                     android:text="@string/workout_button_quick" />
 
                 <Button
-                    android:id="@+id/button2"
+                    android:id="@+id/custom_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"

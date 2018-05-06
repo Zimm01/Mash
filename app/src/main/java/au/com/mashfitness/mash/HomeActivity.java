@@ -16,7 +16,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -24,6 +26,35 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Setup Buttons for home screen Activity
+        Button mashButton= (Button) findViewById(R.id.mash_button);
+        Button customButton= (Button) findViewById(R.id.custom_button);
+
+
+
+        // ONCLICK Event for MASH BUTTON
+        mashButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(), "This is my Toast message!",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
+        // ONCLICK Event for CUSTOM WORKOUT BUTTON
+        customButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplicationContext(), "This is my Toast message2!",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     @Override
