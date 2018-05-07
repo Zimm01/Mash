@@ -55,12 +55,12 @@ public class HomeActivity extends AppCompatActivity  {
             public void onClick(View view) {
 
                 //Intent myIntent = new Intent(getBaseContext(),   ListPage.class);
-                Intent myIntent = new Intent(HomeActivity.this, ListPage.class);
+                Intent toCustomWorkout = new Intent(HomeActivity.this, ListPage.class);
                 String value= sets.getText().toString();
                 int finalValue=Integer.parseInt(value);
-                myIntent.putExtra("sets", finalValue);
+                toCustomWorkout.putExtra("sets", finalValue);
 
-                startActivity(myIntent);
+                startActivity(toCustomWorkout);
 
             }
         });

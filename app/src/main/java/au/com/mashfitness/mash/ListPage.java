@@ -13,7 +13,8 @@ import java.util.List;
 
 public class ListPage extends AppCompatActivity {
 
-
+    // The position of the "Hydrate" entry in the list
+    private static int positionOfFistRealWorkout = 1;
 
     Integer[] imageArray = {R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
@@ -28,19 +29,44 @@ public class ListPage extends AppCompatActivity {
     };
 
     private boolean isReady = false;
-    ListView listView;
-    WorkoutStorage exercises = new WorkoutStorage();
+    private ListView listView;
+    private WorkoutStorage exercises = new WorkoutStorage();
 
 
-    String sortName = "";
-    String sortDescription = "";
-    String sortImage = "";
+    private String sortName = "";
+    private String sortDescription = "";
+    private String sortImage = "";
 
+    // The number of exercises we currently have in the Storage Array
+    private  int numberOfExercises = 0;
+
+    // Our "Return Home" call
+    private Intent returnHome = new Intent(ListPage.this, HomeActivity.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_setup);
+
+        // Instantiate our list of exercises
+        exercises.setUp();
+
+        // Number of exercises = Storage Array - 1 (We do not want the first value!)
+        numberOfExercises = exercises.getNumberOfExercises();
+
+        try {
+
+
+            // We must ensure the "Hydrate" entry is number 1 on the list
+            if (! exercises.isHydtareEntry1()) {
+                throw new Exception("h");
+            }
+        }
+        catch (Exception e){
+
+            Log.e("ListPage","You Must Set the 'Hydrate' item to the first Postion on the Workout Storage List!!");
+            startActivity(returnHome);
+        }
 
         Button beginButton = (Button) findViewById(R.id.begin_workout_button);
 
@@ -59,14 +85,12 @@ public class ListPage extends AppCompatActivity {
         });
 
 
-        exercises.setUp();
-
-        for(int i = 0;i<setsAmount;i++) {
-            if(i==0) {
+        for(int i = positionOfFistRealWorkout; i < setsAmount + 1;i++) {
+            if(i== positionOfFistRealWorkout) {
                 sortName = exercises.getName(i);
                 sortDescription = exercises.getDescription(i);
             }else{
-                sortName = sortName+","+exercises.getName(i);
+                sortName += "," + exercises.getName(i);
                 sortDescription = sortDescription+","+exercises.getDescription(i);
             }
         }
