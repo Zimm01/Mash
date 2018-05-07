@@ -40,9 +40,6 @@ public class ListPage extends AppCompatActivity {
     // The number of exercises we currently have in the Storage Array
     private  int numberOfExercises = 0;
 
-    // Our "Return Home" call
-    private Intent returnHome = new Intent(ListPage.this, HomeActivity.class);
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +60,8 @@ public class ListPage extends AppCompatActivity {
             }
         }
         catch (Exception e){
+
+            Intent returnHome = new Intent(this, HomeActivity.class);
 
             Log.e("ListPage","You Must Set the 'Hydrate' item to the first Postion on the Workout Storage List!!");
             startActivity(returnHome);
