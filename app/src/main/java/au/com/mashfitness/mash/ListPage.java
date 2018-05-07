@@ -1,28 +1,19 @@
 package au.com.mashfitness.mash;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListPage extends AppCompatActivity {
 
-    String[] nameArray = {"Burpees","Butterfly situps","Lunge Walk","Plank Walk","Plyometric lunges","Pulse Squats",
-            "Pushup Jacks","Pushup Twist","Russain twist","Star Jumps"};
 
-    String[] infoArray = {
-            "Endurance",
-            "Core",
-            "Endurance",
-            "Core",
-            "Cardio",
-            "Endurance",
-            "Endurance",
-            "Endurance",
-            "Core",
-            "Endurance"
-    };
 
     Integer[] imageArray = {R.drawable.ic_launcher_background,
             R.drawable.ic_launcher_background,
@@ -38,8 +29,12 @@ public class ListPage extends AppCompatActivity {
 
     private boolean isReady = false;
     ListView listView;
+    WorkoutStorage exercises = new WorkoutStorage();
 
 
+    String sortName = "";
+    String sortDescription = "";
+    String sortImage = "";
 
 
     @Override
@@ -49,6 +44,11 @@ public class ListPage extends AppCompatActivity {
 
         Button beginButton = (Button) findViewById(R.id.begin_workout_button);
 
+        //Getting user value from home screen for 'sets'
+        Intent intent = getIntent();
+        Integer setsAmount = intent.getIntExtra("sets",5);
+
+        //Button for starting workout
         beginButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -59,9 +59,26 @@ public class ListPage extends AppCompatActivity {
         });
 
 
+        exercises.setUp();
+
+        for(int i = 0;i<setsAmount;i++) {
+            if(i==0) {
+                sortName = exercises.getName(i);
+                sortDescription = exercises.getDescription(i);
+            }else{
+                sortName = sortName+","+exercises.getName(i);
+                sortDescription = sortDescription+","+exercises.getDescription(i);
+            }
+        }
+
+        String[] nameArray = sortName.split(",");
+        String[] infoArray = sortDescription.split(",");
+        Log.d("Exercise Name", sortName);
+
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(whatever);
+
 
 
     }
