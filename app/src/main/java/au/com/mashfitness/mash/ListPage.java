@@ -84,7 +84,7 @@ public class ListPage extends AppCompatActivity {
             }
         });
 
-
+        // The setsAmount +1 may cause an exception, requires more testing!
         for(int i = positionOfFistRealWorkout; i < setsAmount + 1;i++) {
             if(i== positionOfFistRealWorkout) {
                 sortName = exercises.getName(i);
