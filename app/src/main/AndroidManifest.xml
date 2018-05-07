@@ -21,10 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListPage" />
-<<<<<<< HEAD
-=======
         <activity android:name=".ExerciseMode"></activity>
->>>>>>> 27534d96d98cb9da8e33a7b22038de8fdcb7c76d
+
     </application>
 
 </manifest>
