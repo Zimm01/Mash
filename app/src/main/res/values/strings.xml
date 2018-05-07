@@ -2,8 +2,8 @@
     <string name="app_name">Mash</string>
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
-    
-    
+
+
     <!-- Home Screen -->
     <string name="main_logo_desc">Application Main Logo</string>
     <string name="main_logo_text">Mash Fitness</string>
@@ -16,8 +16,15 @@
 
     <string name="homescreen_timeoff_title">Time Off</string>
     <string name="homescreen_timeoff_standard">0:15</string>
-    
+
     <string name="workout_button_quick">Quick Mash</string>
     <string name="workout_button_custom">Custom Workout</string>
+    <string name="BackgroundImage">backgroundImage</string>
+    <string name="workout_mode">Workout Mode!</string>
+    <string name="SetNumber" />
+    <string name="TimeOnDuration" />
+    <string name="TimeOffDuration" />
+    <string name="ExerciseName" />
+    <string name="closescreen">CloseScreen</string>
 
 </resources>
