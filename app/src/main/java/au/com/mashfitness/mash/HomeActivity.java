@@ -1,5 +1,6 @@
 package au.com.mashfitness.mash;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,10 +19,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.*;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity  {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,11 +34,11 @@ public class HomeActivity extends AppCompatActivity {
         // Setup Buttons for home screen Activity
         Button mashButton= (Button) findViewById(R.id.mash_button);
         Button customButton= (Button) findViewById(R.id.custom_button);
-
+        final EditText sets = (EditText)findViewById(R.id.input_sets);
 
 
         // ONCLICK Event for MASH BUTTON
-        mashButton.setOnClickListener(new View.OnClickListener()
+        customButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
@@ -45,13 +49,19 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         // ONCLICK Event for CUSTOM WORKOUT BUTTON
-        customButton.setOnClickListener(new View.OnClickListener()
+        mashButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(), "This is my Toast message2!",
-                        Toast.LENGTH_LONG).show();
+                //Intent myIntent = new Intent(getBaseContext(),   ListPage.class);
+                Intent toCustomWorkout = new Intent(HomeActivity.this, ListPage.class);
+                String value= sets.getText().toString();
+                int finalValue=Integer.parseInt(value);
+                toCustomWorkout.putExtra("sets", finalValue);
+
+                startActivity(toCustomWorkout);
+
             }
         });
 
