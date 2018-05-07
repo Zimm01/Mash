@@ -39,7 +39,7 @@ public class ListPage extends AppCompatActivity {
     private boolean isReady = false;
     ListView listView;
 
-    Button beginButton = (Button) findViewById(R.id.begin_workout_button);
+
 
 
     @Override
@@ -47,15 +47,16 @@ public class ListPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_setup);
 
+        Button beginButton = (Button) findViewById(R.id.begin_workout_button);
 
-        beginButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Enter code to transition to workout page
+        beginButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+        //Enter transition code for Begin workout button
 
-                
             }
         });
-
 
 
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
