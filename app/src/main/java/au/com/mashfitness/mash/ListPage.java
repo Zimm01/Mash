@@ -71,7 +71,8 @@ public class ListPage extends AppCompatActivity {
         Random rand = new Random();
         // The setsAmount +1 may cause an exception, requires more testing!
         for(int i = positionOfFistRealWorkout; i < setsAmount + 1;i++) {
-            int  randomExercise = rand.nextInt(numberOfExercises) + 1;
+            //-1 because nameList.length has the hydrate in it
+            int  randomExercise = rand.nextInt(numberOfExercises-1) + 1;
             if(i== positionOfFistRealWorkout) {
                 sortName = exercises.getName(randomExercise);
                 sortDescription = exercises.getDescription(randomExercise);
