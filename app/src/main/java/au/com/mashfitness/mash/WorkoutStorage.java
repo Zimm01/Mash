@@ -10,6 +10,8 @@ import java.util.Map;
 
 public class WorkoutStorage {
 
+    
+
     // Position and comparable name of our Hydrate Image in the array
     private static int positionOfHydrateEntry = 0;
     private static String nameOfHydrateEntry = "Hydrate";
@@ -64,8 +66,8 @@ public class WorkoutStorage {
             Integer.toString(R.drawable.app_logo)};
 
     public void setUp() {
-
-        numberOfExercises = nameList.length;
+        //I have -1 from the number of exercises becuase the last exercise has the Mash logo as its image
+        numberOfExercises = nameList.length-1;
 
         for (int i = 0; i < numberOfExercises; i++) {
             HashMap<String, String> mMap = new HashMap<String, String>();

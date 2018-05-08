@@ -1,37 +1,20 @@
 package au.com.mashfitness.mash;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Random;
 
 public class ListPage extends AppCompatActivity {
 
     // The position of the "Hydrate" entry in the list
     private static int positionOfFistRealWorkout = 1;
 
-    Integer[] imageArray = {R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background,
-            R.drawable.ic_launcher_background
-    };
-
-    private boolean isReady = false;
     private ListView listView;
     private WorkoutStorage exercises = new WorkoutStorage();
-
 
     private String sortName = "";
     private String sortDescription = "";
@@ -69,6 +52,7 @@ public class ListPage extends AppCompatActivity {
 
         Button beginButton = (Button) findViewById(R.id.begin_workout_button);
 
+
         //Getting user value from home screen for 'sets'
         Intent intent = getIntent();
         Integer setsAmount = intent.getIntExtra("sets",5);
@@ -83,20 +67,26 @@ public class ListPage extends AppCompatActivity {
             }
         });
 
+        //For selecting random exercise from exercise list
+        Random rand = new Random();
         // The setsAmount +1 may cause an exception, requires more testing!
         for(int i = positionOfFistRealWorkout; i < setsAmount + 1;i++) {
+            int  randomExercise = rand.nextInt(numberOfExercises) + 1;
             if(i== positionOfFistRealWorkout) {
-                sortName = exercises.getName(i);
-                sortDescription = exercises.getDescription(i);
+                sortName = exercises.getName(randomExercise);
+                sortDescription = exercises.getDescription(randomExercise);
+                sortImage = exercises.getImage(randomExercise);
             }else{
-                sortName += "," + exercises.getName(i);
-                sortDescription = sortDescription+","+exercises.getDescription(i);
+                sortName += "," + exercises.getName(randomExercise);
+                sortDescription = sortDescription+","+exercises.getDescription(randomExercise);
+                sortImage = sortImage+","+exercises.getImage(randomExercise);
             }
         }
 
         String[] nameArray = sortName.split(",");
         String[] infoArray = sortDescription.split(",");
-        Log.d("Exercise Name", sortName);
+        String[] imageArray = sortImage.split(",");
+
 
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
         listView = (ListView) findViewById(R.id.listViewID);

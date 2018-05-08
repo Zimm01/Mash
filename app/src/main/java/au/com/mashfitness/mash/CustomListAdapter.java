@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.*;
 
+import java.util.*;
+
 import static au.com.mashfitness.mash.R.layout.list_view_setup;
 import static java.lang.String.format;
 import static java.lang.System.*;
@@ -18,28 +20,26 @@ public class CustomListAdapter extends ArrayAdapter {
 
     private final ListPage context;
 
-
-    private final Integer[] imageIDarray;
-
-
     private final String[] nameArray;
-
 
     private final String[] infoArray;
 
 
 
+    private final String[] tempImgArray;
 
-    public CustomListAdapter(ListPage context, String[] nameArrayParam, String[] infoArrayParam, Integer[] imageIDArrayParam){
+
+
+    public CustomListAdapter(ListPage context, String[] nameArrayParam, String[] infoArrayParam, String[] tempImgArray){
 
         super(context,R.layout.list_view_setup,nameArrayParam);
-
         this.context = context;
-        this.imageIDarray = imageIDArrayParam;
+        this.tempImgArray = tempImgArray;
         this.nameArray = nameArrayParam;
         this.infoArray = infoArrayParam;
-
     }
+
+
     public View getView(int position, View view, ViewGroup parent) {
         LayoutInflater inflater = context.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.list_cell_setup, null, true);
@@ -51,8 +51,11 @@ public class CustomListAdapter extends ArrayAdapter {
 
         nameTextField.setText(nameArray[position]);
         infoTextField.setText(infoArray[position]);
-        imageView.setImageResource(imageIDarray[position]);
+        Log.e("ListPage", String.valueOf(tempImgArray));
 
+        //Turning the string value to Int for getting exercise image
+        int img = Integer.parseInt(String.valueOf(tempImgArray[position]));
+        imageView.setImageResource(img);
         return rowView;
     };
 
