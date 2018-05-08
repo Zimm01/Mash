@@ -36,7 +36,7 @@ public class WorkoutStorage {
             "Russian Twists",
             "Strict Sit Ups",
             "Squats",
-            "Plank Rollers"};
+            };
 
 
     private String[] descriptionString = new String[]{
@@ -48,8 +48,7 @@ public class WorkoutStorage {
             "Endurance",
             "Core",
             "Core",
-            "Endurance",
-            "Core"};
+            "Endurance"};
 
     // THIS ARRAY STORES THE REFERENCE INTEGER TO THE IMAGE IN DRAWABLE
     // IT WILL NEED TO BE CONVERTED BACK TO AN INT TO BE USED
@@ -63,11 +62,10 @@ public class WorkoutStorage {
             Integer.toString(R.drawable.app_ex_static_russian),
             Integer.toString(R.drawable.app_ex_static_situp),
             Integer.toString(R.drawable.app_ex_static_squat),
-            Integer.toString(R.drawable.app_logo)};
+            };
 
     public void setUp() {
-        //I have -1 from the number of exercises becuase the last exercise has the Mash logo as its image
-        numberOfExercises = nameList.length-1;
+        numberOfExercises = nameList.length;
 
         for (int i = 0; i < numberOfExercises; i++) {
             HashMap<String, String> mMap = new HashMap<String, String>();
