@@ -1,6 +1,6 @@
 package au.com.mashfitness.mash;
 
-import android.support.annotation.NonNull;
+
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -10,11 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.*;
 
-import java.util.*;
-
-import static au.com.mashfitness.mash.R.layout.list_view_setup;
-import static java.lang.String.format;
-import static java.lang.System.*;
 
 public class CustomListAdapter extends ArrayAdapter {
 
@@ -26,7 +21,6 @@ public class CustomListAdapter extends ArrayAdapter {
     private final String[] infoArray;
 
     private final String[] tempImgArray;
-
 
 
     public CustomListAdapter(AppCompatActivity custom, String[] nameArrayParam, String[] infoArrayParam, String[] tempImgArray){

@@ -1,4 +1,4 @@
-package au.com.mashfitness.mash;
+package au.com.mashfitness.mash.list_pages;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,12 @@ import android.view.View;
 import android.widget.*;
 import java.util.Random;
 
-public class ListPage extends AppCompatActivity {
+import au.com.mashfitness.mash.CustomListAdapter;
+import au.com.mashfitness.mash.HomeActivity;
+import au.com.mashfitness.mash.R;
+import au.com.mashfitness.mash.WorkoutStorage;
+
+public class SelectExercisePage extends AppCompatActivity {
 
     // The position of the "Hydrate" entry in the list
     private static int positionOfFistRealWorkout = 1;
@@ -19,6 +24,7 @@ public class ListPage extends AppCompatActivity {
     private String sortName = "";
     private String sortDescription = "";
     private String sortImage = "";
+    private int prevPagePosition;
 
     // The number of exercises we currently have in the Storage Array
     private  int numberOfExercises = 0;
@@ -54,33 +60,33 @@ public class ListPage extends AppCompatActivity {
 
 
         //Getting user value from home screen for 'sets'
-        Intent intent = getIntent();
-        Integer setsAmount = intent.getIntExtra("sets",5);
+        Bundle extras = getIntent().getExtras();
+        this.prevPagePosition = extras.getInt("position");
+
 
         //Button for starting workout
         beginButton.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view) {
-        //Enter transition code for Begin workout button
+                //Enter transition code for Begin workout button
 
             }
         });
 
-        //For selecting random exercise from exercise list
-        Random rand = new Random();
+
         // The setsAmount +1 may cause an exception, requires more testing!
-        for(int i = positionOfFistRealWorkout; i < setsAmount + 1;i++) {
+        for(int i = positionOfFistRealWorkout; i < (numberOfExercises-1);i++) {
             //-1 because nameList.length has the hydrate in it
-            int  randomExercise = rand.nextInt(numberOfExercises-1) + 1;
+
             if(i== positionOfFistRealWorkout) {
-                sortName = exercises.getName(randomExercise);
-                sortDescription = exercises.getDescription(randomExercise);
-                sortImage = exercises.getImage(randomExercise);
+                sortName = exercises.getName(i);
+                sortDescription = exercises.getDescription(i);
+                sortImage = exercises.getImage(i);
             }else{
-                sortName += "," + exercises.getName(randomExercise);
-                sortDescription = sortDescription+","+exercises.getDescription(randomExercise);
-                sortImage = sortImage+","+exercises.getImage(randomExercise);
+                sortName += "," + exercises.getName(i);
+                sortDescription = sortDescription+","+exercises.getDescription(i);
+                sortImage = sortImage+","+exercises.getImage(i);
             }
         }
 
@@ -92,8 +98,29 @@ public class ListPage extends AppCompatActivity {
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(whatever);
+        returnSelectedItem();
+    }
+
+    public void returnSelectedItem(){
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
 
 
+                Intent goToActivityBIntent = new Intent(SelectExercisePage.this, CustomListPage.class);
+                goToActivityBIntent.putExtra("selected_exercise", position);
+                goToActivityBIntent.putExtra("prevSelectedItem", prevPagePosition);
+                goToActivityBIntent.putExtra("secondSetup", true);
+                Log.d("SELECPREVPAGEPOSSY", Integer.toString(prevPagePosition));
+                startActivity(goToActivityBIntent);
+                finish();
+
+            }
+        });
 
     }
+
+
+
 }
