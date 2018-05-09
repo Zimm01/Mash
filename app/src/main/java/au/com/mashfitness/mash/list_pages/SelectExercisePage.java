@@ -33,6 +33,8 @@ public class SelectExercisePage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view_setup);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("Select a Workout");
 
         // Instantiate our list of exercises
         exercises.setUp();
@@ -99,6 +101,7 @@ public class SelectExercisePage extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(whatever);
         returnSelectedItem();
+
     }
 
     public void returnSelectedItem(){
@@ -114,13 +117,16 @@ public class SelectExercisePage extends AppCompatActivity {
                 goToActivityBIntent.putExtra("secondSetup", true);
                 Log.d("SELECPREVPAGEPOSSY", Integer.toString(prevPagePosition));
                 startActivity(goToActivityBIntent);
-                finish();
-
+                onSupportNavigateUp();
             }
         });
 
     }
-
+//function for back button
+    public boolean onSupportNavigateUp(){
+        this.finish();
+        return true;
+    }
 
 
 }
