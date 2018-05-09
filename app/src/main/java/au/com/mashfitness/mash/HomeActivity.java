@@ -43,8 +43,14 @@ public class HomeActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplicationContext(), "This is my Toast message!",
-                        Toast.LENGTH_LONG).show();
+                //Intent myIntent = new Intent(getBaseContext(),   ListPage.class);
+                Intent toCustomWorkout = new Intent(HomeActivity.this, CustomListPage.class);
+                String value= sets.getText().toString();
+                int finalValue=Integer.parseInt(value);
+                toCustomWorkout.putExtra("sets", finalValue);
+
+                startActivity(toCustomWorkout);
+
             }
         });
 

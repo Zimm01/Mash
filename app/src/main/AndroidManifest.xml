@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ListPage" />
+        <activity android:name=".CustomListPage" />
         <activity android:name=".ExerciseMode"></activity>
 
     </application>

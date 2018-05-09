@@ -1,6 +1,7 @@
 package au.com.mashfitness.mash;
 
 import android.support.annotation.NonNull;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,30 +19,30 @@ import static java.lang.System.*;
 public class CustomListAdapter extends ArrayAdapter {
 
 
-    private final ListPage context;
+    private final AppCompatActivity custom;
 
     private final String[] nameArray;
 
     private final String[] infoArray;
 
-
-
     private final String[] tempImgArray;
 
 
 
-    public CustomListAdapter(ListPage context, String[] nameArrayParam, String[] infoArrayParam, String[] tempImgArray){
+    public CustomListAdapter(AppCompatActivity custom, String[] nameArrayParam, String[] infoArrayParam, String[] tempImgArray){
 
-        super(context,R.layout.list_view_setup,nameArrayParam);
-        this.context = context;
+        super(custom,R.layout.list_view_setup,nameArrayParam);
+        this.custom = custom;
         this.tempImgArray = tempImgArray;
         this.nameArray = nameArrayParam;
         this.infoArray = infoArrayParam;
+
+
     }
 
 
     public View getView(int position, View view, ViewGroup parent) {
-        LayoutInflater inflater = context.getLayoutInflater();
+        LayoutInflater inflater = custom.getLayoutInflater();
         View rowView = inflater.inflate(R.layout.list_cell_setup, null, true);
 
         //this code gets references to objects in the listview_row.xml file
