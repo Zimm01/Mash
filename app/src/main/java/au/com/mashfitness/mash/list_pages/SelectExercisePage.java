@@ -25,6 +25,7 @@ public class SelectExercisePage extends AppCompatActivity {
     private String sortDescription = "";
     private String sortImage = "";
     private int prevPagePosition;
+    private String customList;
 
     // The number of exercises we currently have in the Storage Array
     private  int numberOfExercises = 0;
@@ -53,8 +54,6 @@ public class SelectExercisePage extends AppCompatActivity {
         catch (Exception e){
 
             Intent returnHome = new Intent(this, HomeActivity.class);
-
-            Log.e("ListPage","You Must Set the 'Hydrate' item to the first Postion on the Workout Storage List!!");
             startActivity(returnHome);
         }
 
@@ -64,6 +63,7 @@ public class SelectExercisePage extends AppCompatActivity {
         //Getting user value from home screen for 'sets'
         Bundle extras = getIntent().getExtras();
         this.prevPagePosition = extras.getInt("position");
+        this.customList = String.valueOf(extras.get("customList"));
 
 
         //Button for starting workout
@@ -115,6 +115,7 @@ public class SelectExercisePage extends AppCompatActivity {
                 goToActivityBIntent.putExtra("selected_exercise", position);
                 goToActivityBIntent.putExtra("prevSelectedItem", prevPagePosition);
                 goToActivityBIntent.putExtra("secondSetup", true);
+                goToActivityBIntent.putExtra("customList", customList);
                 Log.d("SELECPREVPAGEPOSSY", Integer.toString(prevPagePosition));
                 startActivity(goToActivityBIntent);
                 onSupportNavigateUp();

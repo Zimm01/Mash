@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.*;
 
+import static java.lang.String.valueOf;
+
 
 public class CustomListAdapter extends ArrayAdapter {
 
@@ -46,10 +48,10 @@ public class CustomListAdapter extends ArrayAdapter {
 
         nameTextField.setText(nameArray[position]);
         infoTextField.setText(infoArray[position]);
-        Log.e("ListPage", String.valueOf(tempImgArray));
+        Log.e("ListPage", valueOf(tempImgArray));
 
         //Turning the string value to Int for getting exercise image
-        int img = Integer.parseInt(String.valueOf(tempImgArray[position]));
+        int img = Integer.parseInt(valueOf(tempImgArray[position]));
         imageView.setImageResource(img);
         return rowView;
     };
