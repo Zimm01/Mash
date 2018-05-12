@@ -116,7 +116,6 @@ public class SelectExercisePage extends AppCompatActivity {
                 goToActivityBIntent.putExtra("prevSelectedItem", prevPagePosition);
                 goToActivityBIntent.putExtra("secondSetup", true);
                 goToActivityBIntent.putExtra("customList", customList);
-                Log.d("SELECPREVPAGEPOSSY", Integer.toString(prevPagePosition));
                 startActivity(goToActivityBIntent);
                 onSupportNavigateUp();
             }
