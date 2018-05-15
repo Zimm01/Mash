@@ -1,15 +1,18 @@
 package au.com.mashfitness.mash;
 
 import android.content.Intent;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import android.widget.Button;
 import android.widget.EditText;
+
 
 import au.com.mashfitness.mash.list_pages.CustomListPage;
 import au.com.mashfitness.mash.list_pages.ListPage;
@@ -25,6 +28,8 @@ public class HomeActivity extends AppCompatActivity  {
         Button mashButton= (Button) findViewById(R.id.mash_button);
         Button customButton= (Button) findViewById(R.id.custom_button);
         final EditText sets = (EditText)findViewById(R.id.input_sets);
+        final EditText timeOn = (EditText) findViewById(R.id.input_timeon);
+        final EditText timeOff = (EditText) findViewById(R.id.input_timeoff);
 
 
         // ONCLICK Event for MASH BUTTON
@@ -36,8 +41,13 @@ public class HomeActivity extends AppCompatActivity  {
                 //Intent myIntent = new Intent(getBaseContext(),   ListPage.class);
                 Intent toCustomWorkout = new Intent(HomeActivity.this, CustomListPage.class);
                 String value= sets.getText().toString();
+                String timeOnValue = String.valueOf(timeOn.getText());
+                String timeOffValue = String.valueOf(timeOff.getText());
                 int finalValue=Integer.parseInt(value);
+                Log.d("Time string 0",timeOnValue);
                 toCustomWorkout.putExtra("sets", finalValue);
+                toCustomWorkout.putExtra("timeOn",timeOnValue);
+                toCustomWorkout.putExtra("timeOff",timeOffValue);
 
                 startActivity(toCustomWorkout);
 

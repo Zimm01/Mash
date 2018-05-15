@@ -26,6 +26,8 @@ public class SelectExercisePage extends AppCompatActivity {
     private String sortImage = "";
     private int prevPagePosition;
     private String customList;
+    private String timeOn;
+    private String timeOff;
 
     // The number of exercises we currently have in the Storage Array
     private  int numberOfExercises = 0;
@@ -64,6 +66,8 @@ public class SelectExercisePage extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         this.prevPagePosition = extras.getInt("position");
         this.customList = String.valueOf(extras.get("customList"));
+        this.timeOn = String.valueOf(extras.get("timeOn"));
+        this.timeOff = String.valueOf(extras.get("timeOff"));
 
 
         //Button for starting workout
@@ -116,6 +120,8 @@ public class SelectExercisePage extends AppCompatActivity {
                 goToActivityBIntent.putExtra("prevSelectedItem", prevPagePosition);
                 goToActivityBIntent.putExtra("secondSetup", true);
                 goToActivityBIntent.putExtra("customList", customList);
+                goToActivityBIntent.putExtra("timeOn",timeOn);
+                goToActivityBIntent.putExtra("timeOff",timeOff);
                 startActivity(goToActivityBIntent);
                 onSupportNavigateUp();
             }

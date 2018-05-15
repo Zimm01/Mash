@@ -25,6 +25,8 @@ public class CustomListPage extends AppCompatActivity {
     private ListView listView;
     private WorkoutStorage exercises = new WorkoutStorage();
     private int setsAmount = 0;
+    private String timeOn;
+    private String timeOff;
     private String sortName = "";
     private String sortDescription = "";
     private String sortImage = "";
@@ -49,8 +51,11 @@ public class CustomListPage extends AppCompatActivity {
         // Number of exercises = Storage Array - 1 (We do not want the first value!)
         numberOfExercises = exercises.getNumberOfExercises();
 
-        Intent intent = getIntent();
-        setsAmount = intent.getIntExtra("sets",5);
+        Bundle intent = getIntent().getExtras();
+        setsAmount = intent.getInt("sets",5);
+        timeOn = String.valueOf(intent.get("timeOn"));
+        timeOff = String.valueOf(intent.get("timeOff"));
+        Log.d("time string1",timeOn);
 
 //This is for setting up the initial array for list cells
         for(int i = 0;i<setsAmount+1;i++){
@@ -73,8 +78,10 @@ public class CustomListPage extends AppCompatActivity {
 
         //Getting values from selectWorkoutPage
         Bundle extras = getIntent().getExtras();
-        //if statement checking if the Select exercise list was just close, if that is true then this will run
+        //if statement checking if the Select exercise list was just closed, if that is true then this will run
         if(extras.getBoolean("secondSetup")==true) {
+            timeOn = String.valueOf(extras.get("timeOn"));
+            timeOff = String.valueOf(extras.get("timeOff"));
             itemSelected = (extras.getInt("prevSelectedItem"))+1;
             selectedExercise = (extras.getInt("selected_exercise")) + 1;
             String customList = String.valueOf(extras.get("customList"));
@@ -95,6 +102,9 @@ public class CustomListPage extends AppCompatActivity {
                 if(checkIfReady()){
                     //Code for button transition
                     Intent toWorkoutMode = new Intent(CustomListPage.this, ExerciseMode.class);
+                    toWorkoutMode.putExtra("customList",makeString());
+                    toWorkoutMode.putExtra("timeOn", timeOn);
+                    toWorkoutMode.putExtra("timeOff",timeOff);
                     startActivity(toWorkoutMode);
                 }else{
                     return;
@@ -116,13 +126,15 @@ public class CustomListPage extends AppCompatActivity {
 
             checkIfReady();
 
-//When an item on the list view is selected, this method is called
+//When an item on the list view is selected, this method is called - tkes you to selectExercise page
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
                 //Intent myIntent = new Intent(getBaseContext(),   ListPage.class);
                 Intent toCustomWorkout = new Intent(CustomListPage.this, SelectExercisePage.class);
                 toCustomWorkout.putExtra("position",position);
                 toCustomWorkout.putExtra("customList", makeString());
+                toCustomWorkout.putExtra("timeOn",timeOn);
+                toCustomWorkout.putExtra("timeOff",timeOff);
                 startActivity(toCustomWorkout);
             }
         });
@@ -132,7 +144,7 @@ public class CustomListPage extends AppCompatActivity {
 
     public void newListView(){
 // This whole for loop just looks at the array of selected exercises and puts the correct name, info and image to the correct cell...
-        for(int item = positionOfFistRealWorkout;item<setsAmount+1;item++){
+        for(int item = positionOfFistRealWorkout;item<finalCutomList.size();item++){
             if(finalCutomList.get(item) != -1){
                 if (item == positionOfFistRealWorkout) {
                         sortName = exercises.getName(finalCutomList.get(item));

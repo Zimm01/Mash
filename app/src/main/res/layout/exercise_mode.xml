@@ -8,7 +8,7 @@
     android:background="@drawable/std_background_gradient">
 
     <ImageView
-        android:id="@+id/imageView1ID"
+        android:id="@+id/exercise_"
         android:layout_width="49dp"
         android:layout_height="46dp"
         android:layout_marginStart="8dp"
@@ -40,7 +40,7 @@
         android:id="@+id/infoTextviewID"
         android:layout_width="82dp"
         android:layout_height="34dp"
-        android:layout_marginBottom="464dp"
+        android:layout_marginBottom="492dp"
         android:layout_marginStart="16dp"
         android:text="@string/SetNumber"
         android:textAlignment="center"
@@ -48,22 +48,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="5 Sets!" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="378dp"
-        android:layout_height="226dp"
+        android:id="@+id/exercise_image"
+        android:layout_width="342dp"
+        android:layout_height="222dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:contentDescription="PlaceholderImage"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/infoTextviewID"
-        app:srcCompat="@drawable/lunge_hdpi" />
+        app:layout_constraintTop_toBottomOf="@+id/infoTextviewID" />
 
     <TextView
         android:id="@+id/textView"
@@ -101,14 +100,14 @@
         android:layout_height="41dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="10dp"
         android:text="@string/ExerciseName"
         android:textAlignment="center"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/exercise_image"
         tools:text="Plyometric Lunge" />
 
     <ImageView
