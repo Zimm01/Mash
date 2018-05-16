@@ -26,5 +26,17 @@
     <string name="TimeOffDuration" />
     <string name="ExerciseName" />
     <string name="closescreen">CloseScreen</string>
+    <string name="BeginWorkout">Begin Workout!</string>
+    <string name="WorkoutComplete">Workout Complete!</string>
+    <string name="WellDone">Well Done!</string>
+    <string name="WorkoutSummary">Workout Summary:</string>
+    <string name="newMashWorkout">New Mash Workout</string>
+    <string name="finishWorkout">Finish Workout</string>
+    <string name="sets">Sets:</string>
+    <string name="timeOn">Time On:</string>
+    <string name="timeOff">Time Off:</string>
+    <string name="cardio">Cardio:</string>
+    <string name="endurance">Endurance:</string>
+    <string name="core">Core:</string>
 
 </resources>

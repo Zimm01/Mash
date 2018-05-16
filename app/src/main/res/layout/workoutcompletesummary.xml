@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/std_background_gradient">
+
+    <TextView
+        android:id="@+id/WorkoutComplete"
+        android:layout_width="280dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/WorkoutComplete"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Exit"
+        android:layout_width="49dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="@string/closescreen"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+    <TextView
+        android:id="@+id/WellDone"
+        android:layout_width="212dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/WellDone"
+        android:textColor="#F06432"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WorkoutComplete" />
+
+    <TextView
+        android:id="@+id/WorkoutSummary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/WorkoutSummary"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WellDone" />
+
+    <Button
+        android:id="@+id/FinishWorkout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#598497"
+        android:text="@string/finishWorkout"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/NewMash"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#60000000"
+        android:text="@string/newMashWorkout"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/FinishWorkout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/sets"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/sets"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/timeOn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/timeOn" />
+
+    <TextView
+        android:id="@+id/timeOn"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/timeOn"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/WorkoutSummary" />
+
+    <TextView
+        android:id="@+id/timeOff"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="@string/timeOff"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timeOn"
+        app:layout_constraintTop_toTopOf="@+id/timeOn" />
+
+    <TextView
+        android:id="@+id/timeOnNum"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:background="#60000000"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F06432"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeOn" />
+
+    <TextView
+        android:id="@+id/TimeOffNum"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:background="#60000000"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F06432"
+        app:layout_constraintStart_toStartOf="@+id/timeOff"
+        app:layout_constraintTop_toTopOf="@+id/timeOnNum" />
+
+    <TextView
+        android:id="@+id/setNum"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:background="#60000000"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F06432"
+        app:layout_constraintStart_toStartOf="@+id/sets"
+        app:layout_constraintTop_toTopOf="@+id/timeOnNum" />
+
+    <TextView
+        android:id="@+id/cardio"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:text="@string/cardio"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/setNum"
+        app:layout_constraintTop_toTopOf="@+id/endurance" />
+
+    <TextView
+        android:id="@+id/cardioNum"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:background="#60000000"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F06432"
+        app:layout_constraintStart_toStartOf="@+id/cardio"
+        app:layout_constraintTop_toTopOf="@+id/enduranceNum" />
+
+    <TextView
+        android:id="@+id/endurance"
+        android:layout_width="80dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/endurance"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/timeOnNum" />
+
+    <TextView
+        android:id="@+id/enduranceNum"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:background="#60000000"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F06432"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endurance" />
+
+    <TextView
+        android:id="@+id/core"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:text="@string/core"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/TimeOffNum"
+        app:layout_constraintTop_toTopOf="@+id/endurance" />
+
+    <TextView
+        android:id="@+id/coreNum"
+        android:layout_width="70dp"
+        android:layout_height="20dp"
+        android:background="#60000000"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textColor="#F06432"
+        app:layout_constraintStart_toStartOf="@+id/core"
+        app:layout_constraintTop_toTopOf="@+id/enduranceNum" />
+
+    <ImageButton
+        android:id="@+id/save"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/share"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/share"
+        android:background="#60000000"
+        app:srcCompat="@android:drawable/ic_menu_save" />
+
+    <ImageButton
+        android:id="@+id/share"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/NewMash"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/enduranceNum"
+        app:layout_constraintVertical_bias="1.0"
+        android:background="#60000000"
+        app:srcCompat="@android:drawable/ic_menu_share" />
+
+    <ImageButton
+        android:id="@+id/repeat"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/share"
+        app:layout_constraintTop_toTopOf="@+id/share"
+        android:background="#60000000"
+        app:srcCompat="@android:drawable/stat_notify_sync_noanim" />
+
+</android.support.constraint.ConstraintLayout>
