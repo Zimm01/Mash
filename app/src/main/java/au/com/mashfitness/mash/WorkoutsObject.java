@@ -4,7 +4,7 @@ public class WorkoutsObject {
 
 
     private int _id;
-    private String _name;
+    private String _WorkoutName;
     private String _timeOn;
     private String _timeOff;
     private String _exercisesList;
@@ -14,7 +14,7 @@ public class WorkoutsObject {
     }
 
     public WorkoutsObject(String name, String timeOn, String timeOff, String exercisesList) {
-        this._name = name;
+        this._WorkoutName = name;
         this._timeOn = timeOn;
         this._timeOff = timeOff;
         this._exercisesList = exercisesList;
@@ -27,7 +27,7 @@ public class WorkoutsObject {
     }
 
     public void set_name(String _name) {
-        this._name = _name;
+        this._WorkoutName = _name;
     }
 
     public void set_timeOn(String _timeOn) {
@@ -50,7 +50,7 @@ public class WorkoutsObject {
     }
 
     public String get_name() {
-        return _name;
+        return _WorkoutName;
     }
 
     public String get_timeOn() {
