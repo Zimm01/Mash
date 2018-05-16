@@ -44,7 +44,7 @@ public class ExerciseMode extends AppCompatActivity {
         exercises.setUp();
         timeOffString = extras.getString("timeOff");
         timeOnString = extras.getString("timeOn");
-        Log.d("time string", timeOnString);
+
 
         exerciseImage = (ImageView) findViewById(R.id.exercise_image);
 
@@ -68,7 +68,7 @@ public class ExerciseMode extends AppCompatActivity {
         //prepares initial setup
         updateExercise(timeOn, timeOff);
         changeTime(timeOn, timeOff);
-        Log.d("End of time", "1");
+
 
     }
 
@@ -85,7 +85,7 @@ public class ExerciseMode extends AppCompatActivity {
                 //starts the workout
                 newThread.run();
                 changeTime(timeOn,timeOff);
-                Log.d("Running timer func", "now");
+                Log.d("Running new timer", "now");
                 updateExercise(timeOn, timeOff);
 
             }

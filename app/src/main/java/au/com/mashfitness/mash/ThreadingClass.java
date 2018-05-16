@@ -7,7 +7,7 @@ public class ThreadingClass extends Thread {
         try
         {
             // Displaying the thread that is running
-            System.out.println ("Thread " +
+            System.out.println ("New thread, " +
                     Thread.currentThread().getId() +
                     " is running");
 

@@ -110,7 +110,6 @@ public class ListPage extends AppCompatActivity {
         String[] infoArray = sortDescription.split(",");
         String[] imageArray = sortImage.split(",");
 
-        Log.d("final list", String.valueOf(finalCutomList));
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(whatever);
