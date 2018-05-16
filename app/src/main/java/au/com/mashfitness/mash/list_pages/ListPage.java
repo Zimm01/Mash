@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
+
+import java.util.List;
 import java.util.Random;
 
 import au.com.mashfitness.mash.CustomListAdapter;
+import au.com.mashfitness.mash.ExerciseMode;
 import au.com.mashfitness.mash.HomeActivity;
 import au.com.mashfitness.mash.R;
 import au.com.mashfitness.mash.WorkoutStorage;
@@ -26,8 +29,12 @@ public class ListPage extends AppCompatActivity {
     private String sortDescription = "";
     private String sortImage = "";
 
+    String timeOn;
+    String timeOff;
+
     // The number of exercises we currently have in the Storage Array
     private  int numberOfExercises = 0;
+    List<Integer> finalCutomList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +67,10 @@ public class ListPage extends AppCompatActivity {
 
 
         //Getting user value from home screen for 'sets'
-        Intent intent = getIntent();
-        Integer setsAmount = intent.getIntExtra("sets",5);
+        Bundle intent = getIntent().getExtras();
+        Integer setsAmount = intent.getInt("sets");
+        timeOn = String.valueOf(intent.get("timeOn"));
+        timeOff = String.valueOf(intent.get("timeOff"));
 
         //Button for starting workout
         beginButton.setOnClickListener(new View.OnClickListener()
@@ -69,16 +78,23 @@ public class ListPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
         //Enter transition code for Begin workout button
+                Intent toWorkoutMode = new Intent(ListPage.this, ExerciseMode.class);
+                toWorkoutMode.putExtra("customList",makeString());
+                toWorkoutMode.putExtra("timeOn", timeOn);
+                toWorkoutMode.putExtra("timeOff",timeOff);
+                startActivity(toWorkoutMode);
 
             }
         });
 
+        finalCutomList.add(0);
         //For selecting random exercise from exercise list
         Random rand = new Random();
         // The setsAmount +1 may cause an exception, requires more testing!
         for(int i = positionOfFistRealWorkout; i < setsAmount + 1;i++) {
             //-1 because nameList.length has the hydrate in it
             int  randomExercise = rand.nextInt(numberOfExercises-1) + 1;
+            finalCutomList.add(randomExercise);
             if(i== positionOfFistRealWorkout) {
                 sortName = exercises.getName(randomExercise);
                 sortDescription = exercises.getDescription(randomExercise);
@@ -94,12 +110,24 @@ public class ListPage extends AppCompatActivity {
         String[] infoArray = sortDescription.split(",");
         String[] imageArray = sortImage.split(",");
 
-
+        Log.d("final list", String.valueOf(finalCutomList));
         CustomListAdapter whatever = new CustomListAdapter(this, nameArray, infoArray, imageArray);
         listView = (ListView) findViewById(R.id.listViewID);
         listView.setAdapter(whatever);
 
 
 
+    }
+
+    public String makeString(){
+        String customListString = "";
+        for (int i = 0; i<finalCutomList.size();i++){
+            if(i == 0){
+                customListString = String.valueOf(finalCutomList.get(i));
+            }else{
+                customListString += ","+String.valueOf(finalCutomList.get(i));
+            }
+        }
+        return customListString;
     }
 }

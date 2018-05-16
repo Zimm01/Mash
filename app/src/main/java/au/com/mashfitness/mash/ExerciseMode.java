@@ -8,14 +8,15 @@ import android.util.Log;
 import android.widget.ImageView;
 import java.util.Timer;
 import java.util.TimerTask;
-
+import java.util.Date;
+import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ExerciseMode extends AppCompatActivity {
 
-
+    Thread newThread;
     private boolean timerIsOn = false;
     private boolean updateExercise = false;
     private boolean updateTimer = false;
@@ -32,7 +33,6 @@ public class ExerciseMode extends AppCompatActivity {
     private String customList = "";
 
     List<Integer> finalCutomList = new ArrayList<>();
-
 
 
     @Override
@@ -58,8 +58,7 @@ public class ExerciseMode extends AppCompatActivity {
         String[] timeOffValue = timeOffString.split(":");
         int sencondMin = Integer.parseInt(timeOffValue[0]);
         int secondSec = Integer.parseInt(timeOffValue[1]);
-        int timeOff = (sencondMin*60) + secondSec;
-
+        int timeOff = (sencondMin * 60) + secondSec;
 
 
         for (String item : customList.split(",")) {
@@ -67,48 +66,48 @@ public class ExerciseMode extends AppCompatActivity {
         }
 
         //prepares initial setup
-        updateExercise(timeOn,timeOff);
-
-
-        //starts the workout
+        updateExercise(timeOn, timeOff);
         changeTime(timeOn, timeOff);
+        Log.d("End of time", "1");
 
-        Log.d("End of time","1");
-
-            }
+    }
 
 
     //Custom timer, this takes in a time (period) and itll run 'run()' after the 'period' has ended
-    private void newTimer(final int timeOn, final int timeOff, int period){
+    private void newTimer(final int timeOn, final int timeOff, int period) {
         int delay = 1000;
         //final int period = 1000 * timeOn;
         timer = new Timer();
         interval = 1;
         timer.schedule(new TimerTask() {
             public void run() {
-
-                Log.d("Running timer func","now");
-                updateExercise(timeOn, timeOff);
+                newThread = new Thread(new ThreadingClass());
+                //starts the workout
+                newThread.run();
                 changeTime(timeOn,timeOff);
+                Log.d("Running timer func", "now");
+                updateExercise(timeOn, timeOff);
+
             }
         }, period, delay);
 
     }
 
     //this function prepares the custom timer and sends it a time to run for.
-    public void changeTime(int timeOn, int timeOff){
+    private void changeTime(int timeOn, int timeOff) {
 
-            if (timerIsOn == true) {
-                timer.cancel();
-            }
-            if (updateTimer == false) {
-                newTimer(timeOn, timeOff, timeOn * 1000);
-                updateTimer = true;
-            } else {
-                newTimer(timeOn, timeOff, timeOff * 1000);
-                updateTimer = false;
-            }
-            timerIsOn = true;
+        if (timerIsOn == true) {
+            timer.cancel();
+        }
+
+        if (updateTimer == false) {
+            newTimer(timeOn, timeOff, timeOn * 1000);
+            updateTimer = true;
+        } else {
+            newTimer(timeOn, timeOff, timeOff * 1000);
+            updateTimer = false;
+        }
+        timerIsOn = true;
     }
 
 
@@ -118,8 +117,10 @@ public class ExerciseMode extends AppCompatActivity {
     public void updateExercise(int timeOn, int timeOff){
 
         if(counter == finalCutomList.size()){
+            //Code for page transition to show work out stats
             Log.d("End of workout", "yes");
             timer.cancel();
+
         }else {
             if (updateExercise == false) {
                 exerciseImage.setImageResource(Integer.parseInt(exercises.getImage(finalCutomList.get(counter))));
@@ -131,7 +132,6 @@ public class ExerciseMode extends AppCompatActivity {
             }
         }
     }
-
 
 
 

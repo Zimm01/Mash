@@ -63,8 +63,12 @@ public class HomeActivity extends AppCompatActivity  {
                 //Intent myIntent = new Intent(getBaseContext(),   ListPage.class);
                 Intent toCustomWorkout = new Intent(HomeActivity.this, ListPage.class);
                 String value= sets.getText().toString();
+                String timeOnValue = String.valueOf(timeOn.getText());
+                String timeOffValue = String.valueOf(timeOff.getText());
                 int finalValue=Integer.parseInt(value);
                 toCustomWorkout.putExtra("sets", finalValue);
+                toCustomWorkout.putExtra("timeOn",timeOnValue);
+                toCustomWorkout.putExtra("timeOff",timeOffValue);
 
                 startActivity(toCustomWorkout);
 
