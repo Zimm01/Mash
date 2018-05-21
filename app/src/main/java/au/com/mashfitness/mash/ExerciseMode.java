@@ -1,7 +1,6 @@
 package au.com.mashfitness.mash;
 
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -184,14 +183,16 @@ public class ExerciseMode extends AppCompatActivity {
 
 
     public void toStatPage() {
-        Intent goToActivityBIntent = new Intent(ExerciseMode.this, WorkoutStatPage.class);
-        startActivity(goToActivityBIntent);
+        Intent goToSummaryPage = new Intent(ExerciseMode.this, WorkoutStatPage.class);
+        goToSummaryPage.putExtra("customList",customList);
+        goToSummaryPage.putExtra("timeOn",timeOnString);
+        goToSummaryPage.putExtra("timeOff",timeOffString);
+        startActivity(goToSummaryPage);
 
     }
 
 
     public void startProgressbar(final int timeOn, final int timeOff, boolean isTimeOn){
-
 
         if(isTimeOn == true){
             progress.setMax(timeOn-1);
