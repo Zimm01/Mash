@@ -38,5 +38,6 @@
     <string name="cardio">Cardio:</string>
     <string name="endurance">Endurance:</string>
     <string name="core">Core:</string>
+    <string name="input_rest">rest</string>
 
 </resources>
