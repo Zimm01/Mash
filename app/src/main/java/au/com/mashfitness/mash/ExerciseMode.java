@@ -1,6 +1,7 @@
 package au.com.mashfitness.mash;
 
 
+import android.content.Intent;
 import android.support.annotation.MainThread;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,9 @@ import android.view.WindowManager;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import au.com.mashfitness.mash.list_pages.CustomListPage;
+import au.com.mashfitness.mash.list_pages.SelectExercisePage;
 
 public class ExerciseMode extends AppCompatActivity {
 
@@ -120,6 +124,7 @@ public class ExerciseMode extends AppCompatActivity {
             //Code for page transition to show work out stats
             Log.d("End of workout", "yes");
             timer.cancel();
+            toStatPage();
 
         }else {
             if (updateExercise == false) {
@@ -133,6 +138,12 @@ public class ExerciseMode extends AppCompatActivity {
         }
     }
 
+
+    public void toStatPage() {
+        Intent goToActivityBIntent = new Intent(ExerciseMode.this, WorkoutStatPage.class);
+        startActivity(goToActivityBIntent);
+
+    }
 
 
 

@@ -20,6 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".WorkoutStatPage"/>
         <activity android:name=".list_pages.ListPage" />
         <activity android:name=".list_pages.CustomListPage" />
         <activity android:name=".list_pages.SelectExercisePage" />
